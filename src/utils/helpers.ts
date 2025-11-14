@@ -32,4 +32,10 @@ export function getPostsByTag(posts: CollectionEntry<'blogs'>[], tagId: string) 
     return filteredPosts;
 }
 
-export const withBase = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+export const withBase = (path: string) => {
+    const base = import.meta.env.BASE_URL || '/';
+    // base가 '/'인 경우 그냥 path 반환 (중복 슬래시 방지)
+    if (base === '/') return path;
+    // base가 다른 경우 슬래시 중복 제거 후 결합
+    return `${base.replace(/\/$/, '')}${path}`;
+};
