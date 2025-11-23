@@ -31,9 +31,9 @@ const currentYear = new Date().getFullYear();
   <div
     class="footer-secondary flex flex-col sm:flex-row items-center justify-between gap-6 min-w-full"
   >
-    <div class="flex flex-row gap-2 items-center justify-start text-balance">
-      <span>&copy; {currentYear}</span>
-      {siteConfig.title}. All rights reserved.
+    <div class="flex flex-col sm:flex-row gap-1 sm:gap-2 items-center justify-start text-balance text-center sm:text-left">
+      <span>&copy; {currentYear} {siteConfig.title}.</span>
+      <span>All rights reserved.</span>
     </div>
     <div class="flex flex-row gap-4 items-center justify-end-safe">
       {
@@ -49,7 +49,7 @@ const currentYear = new Date().getFullYear();
     class="footer-identity h-40 sm:h-18 text-center overflow-clip sticky bottom-0 items-end"
   >
     <span
-      class="sigmar-ff text-8xl sm:text-[6.5rem] leading-none text-whitesmoke/50 dark:text-gray-300/30"
+      class="sigmar-ff text-3xl sm:text-5xl md:text-6xl leading-none text-whitesmoke/50 dark:text-gray-300/30 px-2"
       >{siteConfig.title}</span
     >
   </div>

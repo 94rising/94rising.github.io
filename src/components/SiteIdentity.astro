@@ -28,5 +28,5 @@ const {
     height={logoHeight}
     loading={loading}
   />
-  <span class:list={["sigmar-ff", textSize]}>{siteConfig.title}</span>
+  <span class:list={["sigmar-ff text-[10px] sm:text-sm md:text-base whitespace-nowrap overflow-hidden text-ellipsis max-w-[180px] sm:max-w-none", customClass && textSize !== "text-base" ? textSize : ""]}>{siteConfig.title}</span>
 </div>

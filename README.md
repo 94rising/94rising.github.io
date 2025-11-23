@@ -2,7 +2,7 @@
 
 A minimal space-inspired personal blog template, created by Siddhesh Thadeshwar.
 
-![Space Ahead ✨](/space-ahead-preview.jpeg)
+![A TWOSOONBUM PLACE ✨](/space-ahead-preview.jpeg)
 
 See the [demo](https://djsiddz.github.io/space-ahead) to know more.
 
