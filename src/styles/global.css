@@ -144,3 +144,20 @@ html.dark a:not(.button-link):hover {
     gap: 3rem;
   }
 }
+
+/* Post content headings with Jamsil font */
+.jamsil-light h1,
+.jamsil-light h2,
+.jamsil-light h3,
+.jamsil-light h4,
+.jamsil-light h5,
+.jamsil-light h6 {
+  font-family: 'The Jamsil', sans-serif;
+  font-weight: 700;
+}
+
+.jamsil-light strong,
+.jamsil-light b {
+  font-family: 'The Jamsil', sans-serif;
+  font-weight: 700;
+}
