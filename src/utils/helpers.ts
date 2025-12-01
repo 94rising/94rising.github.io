@@ -7,7 +7,7 @@ export function sortItemsByDateDesc(itemA: CollectionEntry<'blogs'>, itemB: Coll
 export function createSlugFromTitle(title: string): string {
     return title
         .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+        .replace(/[^\p{L}\p{N}\s-]/gu, '') // Remove special characters but keep unicode letters and numbers
         .trim()
         .replace(/\s+/g, '-') // Replace spaces with hyphens
         .replace(/-+/g, '-'); // Replace multiple hyphens with a single hyphen
@@ -22,6 +22,7 @@ export function getAllTags(posts: CollectionEntry<'blogs'>[]) {
                 id: createSlugFromTitle(tag)
             };
         })
+        .filter((tag) => tag.id.length > 0) // Filter out empty IDs
         .filter((obj, pos, arr) => {
             return arr.map((mapObj) => mapObj.id).indexOf(obj.id) === pos;
         });
