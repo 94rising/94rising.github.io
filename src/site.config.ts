@@ -72,8 +72,8 @@ const siteConfig: SiteConfig = {
     title: 'A TWOSOONBUM PLACE',
     description: 'A minimal space-inspired personal blog template built with Astro.js and Tailwind CSS, by Siddhesh Thadeshwar',
     image: {
-        src: '/space-ahead-preview.jpeg',
-        alt: 'A TWOSOONBUM PLACE ✨ - A minimal space-inspired personal blog template, created by Siddhesh Thadeshwar.'
+        src: '/assets/images/lsb_cover.png',
+        alt: 'A TWOSOONBUM PLACE ✨'
     },
     headerNavLinks: [
         {
