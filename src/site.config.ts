@@ -132,7 +132,7 @@ const siteConfig: SiteConfig = {
     hero: {
         eyebrowText: 'Galaxy of Adventures',
         title: 'A TWOSOONBUM PLACE ✨',
-        text: "Written by Astro-naut Sid, a space explorer at Beyond Earth.",
+        text: "이 곳은 햄버거와 AI, 자동화를 좋아하는 이순범이 썼습니다.",
         image: {
             src: '/assets/images/pixeltrue-space-discovery.svg',
             alt: 'A person sitting at a desk in front of a computer'
@@ -150,7 +150,7 @@ const siteConfig: SiteConfig = {
     },
     about: {
         title: 'About',
-        text: 'A TWOSOONBUM PLACE is a blog about space exploration and travel. It is written by Astro-naut Sid, a space explorer at Beyond Earth. Sid is known for his love of adventure and his insatiable curiosity about the universe. He has explored countless planets, discovered new life forms, and made friends with aliens along the way. 🚀',
+        text: 'A TWOSOONBUM PLACE는 자동화와 생산성에 관한 블로그입니다. 멀티 클라우드 세계의 DevOps 엔지니어이자 반복 작업 킬러인 이순범이 글을 쓰고 있습니다. 귀찮은 일을 없애는 집착과 AI 도구에 대한 끝없는 호기심으로 유명합니다. 새로운 생산성 해킹을 발견했으며, 그 과정에서 AI와 친구가 되었습니다. 🤖 \n 가끔 햄버거도 먹습니다. 🍔.',
     },
     contactInfo: {
         title: 'Contact',
@@ -164,10 +164,6 @@ const siteConfig: SiteConfig = {
             {
                 text: "LinkedIn",
                 href: "https://www.linkedin.com/"
-            },
-            {
-                text: "Peerlist",
-                href: "https://www.peerlist.io/"
             },
             {
                 text: "GitHub",
