@@ -1,6 +1,6 @@
 ---
 title: "블로그를 시작하는 이유"
-description: "기록하지 않으면 모든 게 휘발된다"
+description: "기록은 중요하죠"
 author: "이순범"
 image:
   url: "../../assets/images/1.png"

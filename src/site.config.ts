@@ -132,7 +132,7 @@ const siteConfig: SiteConfig = {
     hero: {
         eyebrowText: 'Galaxy of Adventures',
         title: 'A TWOSOONBUM PLACE ✨',
-        text: "이 곳은 햄버거와 AI, 자동화를 좋아하는 이순범이 썼습니다.",
+        text: "기술 리뷰, 경험 기록. 햄버거 먹다가 생각난 것들 적어두는 곳",
         image: {
             src: '/assets/images/pixeltrue-space-discovery.svg',
             alt: 'A person sitting at a desk in front of a computer'
