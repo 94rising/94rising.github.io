@@ -178,7 +178,7 @@ const siteConfig: SiteConfig = {
         formUrl: '#'
     },
     blog: {
-        description: "Read about my space adventures, explorations and the aliens I've met on my journeys."
+        description: "DevOps engineer writing about work, experiences, and random thoughts between burger bites."
     },
     postsPerPage: 10,
     recentPostLimit: 3

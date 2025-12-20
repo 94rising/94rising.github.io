@@ -1,103 +1,84 @@
-# Space Ahead ✨ - An Astro v5 Personal Blog Template
+# A TWOSOONBUM PLACE ✨
 
-A minimal space-inspired personal blog template, created by Siddhesh Thadeshwar.
+DevOps engineer writing about work, experiences, and random thoughts between burger bites.
 
-![A TWOSOONBUM PLACE ✨](/space-ahead-preview.jpeg)
+## About This Blog
 
-See the [demo](https://djsiddz.github.io/space-ahead) to know more.
+A personal blog where I write about:
+- DevOps and automation
+- Sprint retrospectives
+- AI and governance
+- Career reflections
+- Book reviews and random thoughts
 
-## 🆕 Real-like Demo
+Built with Astro, deployed on GitHub Pages.
 
-View **Mumbai Stories** - [Samay Anand's Blog](https://djsiddz.github.io/samay-anand)! 🏏 | Source Code [here](https://github.com/djsiddz/samay-anand).
+## Tech Stack
 
-## Theme Features
+- **Framework**: Astro v5
+- **Styling**: Tailwind CSS v4
+- **Animations**: swup.js for view transitions
+- **Deployment**: GitHub Pages via GitHub Actions
+- **Content**: Markdown blog posts with frontmatter
 
-- ✅ Tailwind CSS
-- ✅ Mobile-first responsive layout
-- ✅ Dark and light color mode
-- ✅ Custom About, Contact & 404 pages
-- ✅ Hero section with short bio
-- ✅ Blog content collection
-- ✅ Pagination support
-- ✅ Tags support for blog posts
-- ✅ Subscription form (only UI)
-- ✅ View transitions (via swup.js)
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown support
-
-### Future Scope (Based on requests)
-
-- ⏹️ MDX support via @astrojs/mdx integration
-- ⏹️ SEO-friendly with canonical URLs and OpenGraph data
-- ⏹️ New Portfolio/Projects content collection
-
-## Template Integrations
-
-- Tailwind v4 via Vite Plugin as per latest Astro docs
-- Swup.js for View Transitions
-- RSS: [@astrojs/rss](https://docs.astro.build/en/guides/rss/)
-- Sitemap: [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
-
-## How to use this template
-
-### Getting Started
-
-1. [Create a new repo](https://github.com/new?template_name=space-ahead&template_owner=djsiddz) using this template.
-2. Clone to repo to your local computer using `git clone <your-repo-url>`. Then `cd <your-repo-name>`.
-3. Setup `pnpm` and use `pnpm install` and then `pnpm dev`.
-4. Use the `astro.config.mjs` and `src/site.config.ts` files to setup the template to your liking.
-5. Update any content on homepage (`src/pages/index.astro`), about (`src/pages/about.astro`), and contact (`src/pages/contact.astro`).
-6. Replace the template posts under (`src/content/blogs/*.md`) with your blog posts, using the same format, with the post metadata.
-7. Check the [Astro Deployment guide](https://docs.astro.build/en/guides/deploy/) to know specific steps on deploying this on your preferred provider platform.
-
-### Project Structure
-
-You'll see the following folders and files:
+## Project Structure
 
 ```text
-├── public/----------------- Contains the site logo (replace with your own).
-├── src/--------------------
-│   ├── assets/------------- Contains svg icons for theme toggle component.
-│   │   └── images/--------- Contains default images for homepage and blog posts.
-│   ├── components/--------- All Astro/Preact components in this theme.
-│   ├── content/------------ Content Collections folder.
-│   │   └── blogs/---------- All the blog posts in *.md files.
-│   ├── icons/-------------- All Astro icon components.
-│   ├── layouts/------------ Shared Layout component.
-│   ├── pages/-------------- Various Astro pages, dynamic pages for blogs, tags; a custom 404 page.
-│   ├── styles/------------- Contains `global.css`, `fonts.css` and `animate.css`.
-│   ├── utils/-------------- Contains helper functions.
-│   ├── content.config.ts--- Content collections definitions.
-│   ├── env.d.ts------------ Contains helper functions.
-│   └── site.config.ts------ Manage your site information and content here.
-├── astro.config.mjs-------- Astro configuration file.
-├── changelog.md------------ Detailed Changelog for this theme.
-├── LICENSE----------------- Theme License.
-├── package.json------------ Dependencies and metadata about this template.
-├── README.md--------------- 📍 You are here.
-└── tsconfig.json----------- Typescript configuration file.
+├── public/----------------- Static assets
+├── src/
+│   ├── assets/
+│   │   └── images/--------- Blog post images
+│   ├── components/--------- Astro components
+│   ├── content/
+│   │   └── blogs/---------- Blog posts (*.md)
+│   ├── layouts/------------ Layout components
+│   ├── pages/-------------- Site pages and dynamic routes
+│   ├── styles/------------- Global styles
+│   └── site.config.ts------ Site configuration
+├── astro.config.mjs-------- Astro configuration
+└── package.json------------ Dependencies
 ```
 
-#### Notes
+## Local Development
 
-- Read & consult [Astro's documentation](https://docs.astro.build/) for up-to-date information and making changes to this template.
-- The `src/components` directory is where we like to put any Astro or Preact components.
-- The `src/content/` directory contains "collections" of related Markdown (and MDX) documents. Use getCollection() to retrieve posts from `src/content/blogs/`, and type-check your frontmatter using an optional schema. See Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections/) docs to learn more.
+```bash
+# Install dependencies
+npm install
 
-## Credits and Support Info
+# Start dev server
+npm run dev
 
-### Support Info
+# Build for production
+npm run build
 
-- I provide **paid service** for customizing and setup any of my Astro templates for your projects and startups. Contact me on [Contra](https://contra.com/siddhesht) to know more.
-- Please feel free to create issues for any bugs or feature requests on this theme.
+# Preview production build
+npm run preview
+```
 
-### Credits
+## Deployment
 
-- Generated Space Ahead ✨ logo and images for demo blog content using Microsoft Designer.
-- Homepage illustration by <a href="https://icons8.com/illustrations/author/ARh4OKrFtdfC">Pixeltrue Ouch!</a>
-- Inspired from these amazing Astro templates - [Dante](https://github.com/JustGoodUI/dante-astro-theme) & [Chiri](https://github.com/the3ash/astro-chiri). Please do check them out.
+This blog is automatically deployed to GitHub Pages via GitHub Actions on every push to the `main` branch.
 
-## License
+The deployment workflow:
+1. Builds the Astro site
+2. Uploads the build artifacts
+3. Deploys to GitHub Pages
 
-[GNU GPL v3](/LICENSE)
+## Writing Posts
+
+Blog posts are in `src/content/blogs/` as Markdown files with frontmatter:
+
+```md
+---
+title: "Your Post Title"
+author: "이순범"
+description: "Post description"
+image:
+  url: "../../assets/images/your-image.png"
+  alt: "Image description"
+pubDate: 2025-12-20
+tags: ["tag1", "tag2"]
+---
+
+Your content here...
+```
