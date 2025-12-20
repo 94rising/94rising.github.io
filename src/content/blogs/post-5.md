@@ -6,7 +6,7 @@ image:
   url: "../../assets/images/5.png"
   alt: "운영 자동화 시스템의 프로덕션 환경 구성도"
 pubDate: 2025-12-09
-tags: ["tech", "sprint", "Production", "DevOps", "Automation"]
+tags: ["tech", "sprint", "DevOps", "Automation"]
 ---
 
 ## 개요

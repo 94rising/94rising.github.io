@@ -180,7 +180,7 @@ const siteConfig: SiteConfig = {
     blog: {
         description: "Read about my space adventures, explorations and the aliens I've met on my journeys."
     },
-    postsPerPage: 2,
+    postsPerPage: 10,
     recentPostLimit: 3
 };
 
