@@ -5,7 +5,7 @@ description: "AI로 코딩하는 비개발자들, 그 환호와 뒷감당 사이
 image:
   url: "../../assets/images/6.png"
   alt: "AI 코딩 도구를 사용하는 모습"
-pubDate: 2024-12-17
+pubDate: 2025-12-17
 tags: ["AI", "DevOps", "거버넌스", "바이브코딩"]
 ---
 
