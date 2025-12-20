@@ -130,7 +130,7 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        eyebrowText: 'Galaxy of Adventures',
+        eyebrowText: 'Burgers & Bytes',
         title: 'A TWOSOONBUM PLACE ✨',
         text: `기술 리뷰, 경험 기록.
 햄버거 먹다가 생각난 것들 적어두는 곳`,
