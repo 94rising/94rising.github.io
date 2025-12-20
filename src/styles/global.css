@@ -161,3 +161,55 @@ html.dark a:not(.button-link):hover {
   font-family: 'The Jamsil', sans-serif;
   font-weight: 700;
 }
+
+/* Table styles for markdown content */
+.jamsil-light table {
+  @apply w-full border-collapse my-6 text-sm;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.jamsil-light thead {
+  @apply border-b-2;
+}
+
+html.dark .jamsil-light thead {
+  @apply border-space-yellow;
+}
+
+html.light .jamsil-light thead {
+  @apply border-space-red;
+}
+
+.jamsil-light th {
+  @apply px-4 py-3 text-left font-bold;
+}
+
+.jamsil-light td {
+  @apply px-4 py-3 border-b;
+}
+
+html.dark .jamsil-light td {
+  @apply border-gray-700;
+}
+
+html.light .jamsil-light td {
+  @apply border-gray-300;
+}
+
+.jamsil-light tr:last-child td {
+  @apply border-b-0;
+}
+
+/* Mobile responsive tables */
+@media (max-width: 640px) {
+  .jamsil-light table {
+    @apply text-xs;
+  }
+
+  .jamsil-light th,
+  .jamsil-light td {
+    @apply px-2 py-2;
+  }
+}
