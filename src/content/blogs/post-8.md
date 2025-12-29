@@ -3,7 +3,7 @@ title: "개인정보 유출, 분노에서 체념까지"
 author: "이순범"
 description: "2025년 한 해를 관통한 정보유출 사건들, 그리고 우리가 잃어버린 것"
 image:
-  url: "../../assets/images/8.jpg"
+  url: "../../assets/images/8.png"
   alt: "흩어진 개인정보를 상징하는 이미지"
 pubDate: 2025-12-26
 tags: ["정보보안", "사회", "VUCA"]
