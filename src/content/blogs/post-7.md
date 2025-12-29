@@ -3,7 +3,7 @@ title: "Router 패턴으로 AI 에이전트 다시 설계하기"
 author: "이순범"
 description: "단일 AI의 한계를 넘어 AI 에이전트 구조 설계 필요성을 느낀 2주간의 기록"
 image:
-  url: "../../assets/images/7.jpg"
+  url: "../../assets/images/7.png"
   alt: "AI 에이전트 아키텍처 다이어그램"
 pubDate: 2025-12-23
 tags: ["AI Agent", "n8n", "Jira", "Architecture"]
