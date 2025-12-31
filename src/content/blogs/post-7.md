@@ -1,5 +1,5 @@
 ---
-title: "Router 패턴으로 AI 에이전트 다시 설계하기"
+title: "Sprint 2025-BY26-11 회고"
 author: "이순범"
 description: "단일 AI의 한계를 넘어 AI 에이전트 구조 설계 필요성을 느낀 2주간의 기록"
 image:
