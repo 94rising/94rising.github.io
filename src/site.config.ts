@@ -151,7 +151,7 @@ const siteConfig: SiteConfig = {
     },
     about: {
         title: 'About',
-        text: 'A TWOSOONBUM PLACE는 자동화와 생산성에 관한 블로그입니다. 멀티 클라우드 세계의 DevOps 엔지니어이자 반복 작업 킬러인 이순범이 글을 쓰고 있습니다. 귀찮은 일을 없애는 집착과 AI 도구에 대한 끝없는 호기심으로 유명합니다. 새로운 생산성 해킹을 발견했으며, 그 과정에서 AI와 친구가 되었습니다. 🤖 \n 가끔 햄버거도 먹습니다. 🍔.',
+        text: 'A TWOSOONBUM PLACE는 자동화와 생산성에 관한 블로그입니다. 멀티 클라우드 세계의 DevOps 엔지니어이자 반복 작업 킬러인 이순범이 글을 쓰고 있습니다. 귀찮은 일을 없애는 집착과 AI 도구에 대한 끝없는 호기심으로 유명합니다. 그 과정에서 AI와 친구가 되었습니다. \n 가끔 햄버거도 먹습니다. 🍔.',
     },
     contactInfo: {
         title: 'Contact',
@@ -159,7 +159,7 @@ const siteConfig: SiteConfig = {
         email: {
             text: "Drop me an email and I’ll do my best to respond as soon as possible.",
             href: "mailto:example@example.com",
-            email: "example@example.com"
+            email: "nice47264231@gmail.com"
         },
         socialProfiles: [
             {
