@@ -6,7 +6,7 @@ image:
   url: "../../assets/images/7.png"
   alt: "AI 에이전트 아키텍처 다이어그램"
 pubDate: 2025-12-23
-tags: ["AI Agent", "n8n", "Jira", "Architecture"]
+tags: ["tech", "AI Agent", "n8n", "Jira", "Architecture"]
 ---
 
 12월 내내 AI 에이전트 시스템을 거의 새로 짰다. 단일 AI로 모든 티켓을 처리하던 구조가 한계를 보이더라. K8s 배포 요청에서 CPU 스펙은 무시하고 URL만 나열하거나, DB 생성 티켓에서 스토리지 크기를 제대로 못 읽는 식이다.

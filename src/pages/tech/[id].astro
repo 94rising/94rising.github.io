@@ -5,7 +5,7 @@ import {
   sortItemsByDateDesc,
   createSlugFromTitle,
   withBase,
-  getBlogPosts,
+  getTechPosts,
 } from "../../utils/helpers";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Button from "../../components/Button.astro";
@@ -16,14 +16,14 @@ import siteConfig from "../../site.config";
 
 export async function getStaticPaths() {
   const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
-  const blogPosts = getBlogPosts(allPosts);
-  const postCount = blogPosts.length;
-  return blogPosts.map((post, index) => ({
+  const techPosts = getTechPosts(allPosts);
+  const postCount = techPosts.length;
+  return techPosts.map((post, index) => ({
     params: { id: post.id },
     props: {
       post,
-      prevPost: index + 1 !== postCount ? blogPosts[index + 1] : null,
-      nextPost: index !== 0 ? blogPosts[index - 1] : null,
+      prevPost: index + 1 !== postCount ? techPosts[index + 1] : null,
+      nextPost: index !== 0 ? techPosts[index - 1] : null,
     },
   }));
 }
@@ -39,7 +39,7 @@ const { title, pubDate, author, tags = [], image } = post.data;
 const { Content } = await render(post);
 ---
 
-<MainLayout pageTitle={siteConfig.title + " | " + title}>
+<MainLayout activePage="tech" pageTitle={siteConfig.title + " | " + title}>
   <div class="page-content">
     <h1 class="sigmar-ff text-center text-balance">{title}</h1>
     <p class="leading-8 text-center kanit-regular text-balance text-xs">
@@ -70,14 +70,14 @@ const { Content } = await render(post);
     <div
       class="flex flex-col sm:flex-row items-center justify-center gap-4 my-8"
     >
-      <Button class="back-link" href={withBase("/blog")}>
-        <ArrowLeft class="w-5 h-5 fill-current mr-4" /> Back to All Stories
+      <Button class="back-link" href={withBase("/tech")}>
+        <ArrowLeft class="w-5 h-5 fill-current mr-4" /> Back to Tech
       </Button>
       {
         (prevPost || nextPost) && nextPost && (
           <Button
             class="back-link text-balance"
-            href={withBase("/blog/" + nextPost.id)}
+            href={withBase("/tech/" + nextPost.id)}
           >
             Next Post: {nextPost.data.title}{" "}
             <ArrowRight class="w-5 h-5 fill-current ml-4" />

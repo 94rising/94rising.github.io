@@ -33,6 +33,20 @@ export function getPostsByTag(posts: CollectionEntry<'blogs'>[], tagId: string) 
     return filteredPosts;
 }
 
+// Tech 포스트 필터링 (tech 태그 포함)
+export function getTechPosts(posts: CollectionEntry<'blogs'>[]) {
+    return posts.filter(post =>
+        (post.data.tags || []).map(tag => tag.toLowerCase()).includes('tech')
+    );
+}
+
+// Blog 포스트 필터링 (tech 태그 미포함)
+export function getBlogPosts(posts: CollectionEntry<'blogs'>[]) {
+    return posts.filter(post =>
+        !(post.data.tags || []).map(tag => tag.toLowerCase()).includes('tech')
+    );
+}
+
 export const withBase = (path: string) => {
     const base = import.meta.env.BASE_URL || '/';
     // base가 '/'인 경우 그냥 path 반환 (중복 슬래시 방지)

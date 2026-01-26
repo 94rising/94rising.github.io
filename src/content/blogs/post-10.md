@@ -6,7 +6,7 @@ image:
   url: "../../assets/images/10.png"
   alt: "클라우드 리소스 최적화 개념도"
 pubDate: 2026-01-08
-tags: ["Sprint", "FinOps", "Kubernetes"]
+tags: ["tech", "Sprint", "FinOps", "Kubernetes"]
 ---
 
 12월 24일부터 1월 8일까지 진행한 스프린트. 연말연초라 여유로울 줄 알았는데 생각보다 굵직한 작업이 들어왔다.

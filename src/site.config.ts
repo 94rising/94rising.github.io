@@ -81,6 +81,10 @@ const siteConfig: SiteConfig = {
             href: withBase('/')
         },
         {
+            text: 'Tech',
+            href: withBase('/tech')
+        },
+        {
             text: 'Blog',
             href: withBase('/blog')
         },
