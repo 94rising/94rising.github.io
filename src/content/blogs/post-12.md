@@ -3,7 +3,7 @@ title: "Sprint 2025-BY26-13 : Azure 보안 아키텍처 전환기: NSG에서 WAF
 author: "이순범"
 description: "NSG 기반 보안 관리를 WAF Policy 중심으로 전환하면서 얻은 교훈들"
 image:
-  url: "../../assets/images/12.jpg"
+  url: "../../assets/images/12.png"
   alt: "Azure WAF Architecture"
 pubDate: 2026-01-22
 tags: ["Azure", "WAF", "DevOps", "Security"]
