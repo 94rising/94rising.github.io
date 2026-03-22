@@ -6,7 +6,7 @@ image:
   url: "../../assets/images/12.png"
   alt: "Azure WAF Architecture"
 pubDate: 2026-01-22
-tags: ["Azure", "WAF", "DevOps", "Security"]
+tags: ["Azure", "WAF", "DevOps", "Security", "tech"]
 ---
 
 이번 스프린트 동안 Azure 거버넌스 체계를 대대적으로 개편하는 작업을 진행했다. 기존 NSG(Network Security Group) 기반의 보안 관리를 WAF(Web Application Firewall) Policy 중심으로 전환한 경험을 공유한다.

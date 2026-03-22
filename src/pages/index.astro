@@ -68,7 +68,7 @@ const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
             .map((post) => <PostCardPreview post={post} />)
         }
       </div>
-      <Button href={withBase("/blog")} class="space-btn-filled mt-8">
+      <Button href={withBase("/posts")} class="space-btn-filled mt-8">
         View All Posts <ArrowRight class="w-5 h-5 fill-current ml-4" />
       </Button>
     </div>

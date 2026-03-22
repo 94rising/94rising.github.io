@@ -6,7 +6,7 @@ image:
   url: "../../assets/images/13.jpg"
   alt: "Azure Workload Identity를 통한 다양한 리소스 접근 구성도"
 pubDate: 2026-02-04
-tags: ["Azure", "AKS", "Workload Identity", "Redis", "Blob Storage", "AI Foundry", "Security"]
+tags: ["Azure", "AKS", "Workload Identity", "Redis", "Blob Storage", "AI Foundry", "Security", "tech"]
 ---
 
 ## 들어가며
