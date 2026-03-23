@@ -65,7 +65,10 @@ const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
         {
           allPosts
             .slice(0, siteConfig.recentPostLimit)
-            .map((post) => <PostCardPreview post={post} />)
+            .map((post) => {
+              const isTech = (post.data.tags || []).map((t: string) => t.toLowerCase()).includes("tech");
+              return <PostCardPreview post={post} basePath={isTech ? "/tech" : "/blog"} />;
+            })
         }
       </div>
       <Button href={withBase("/posts")} class="space-btn-filled mt-8">
