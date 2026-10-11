@@ -1,0 +1,707 @@
+---
+import { Image } from "astro:assets";
+import siteConfig from "../site.config";
+import { withBase } from "../utils/helpers";
+import iconImage from "../assets/images/portfolio/dailywhip-icon.png";
+import cardImage from "../assets/images/portfolio/dailywhip-card.png";
+import imageCardImage from "../assets/images/portfolio/dailywhip-image-card.png";
+import appStoreImage from "../assets/images/portfolio/dailywhip-appstore.png";
+import feedSearchImage from "../assets/images/portfolio/dailywhip-feed-search.png";
+import globalImage from "../assets/images/portfolio/dailywhip-global.png";
+
+const links = {
+  appStore: "https://apps.apple.com/kr/app/daily-whip/id6798554061",
+  googlePlay: "https://play.google.com/store/apps/details?id=com.hanadul.whip",
+  web: "https://www.daily-whip.com/",
+};
+
+const meta = [
+  { label: "역할", value: "PM, 파이프라인 설계, 인프라·백엔드·프론트엔드 개발 기여" },
+  { label: "기간", value: "2026년 1월 ~ 현재" },
+  { label: "팀", value: "하나둘 AI" },
+  { label: "현황", value: "iOS와 구글 플레이스토어 출시 후 운영 중" },
+];
+
+const results = [
+  { label: "차트", text: "App Store '잡지 및 신문' 카테고리에서 최고 14위를 기록했습니다." },
+  { label: "출시", text: "2026년 9월 iOS 정식 출시, 이후 구글 플레이스토어에도 배포했습니다." },
+  { label: "발행량", text: "하루 500개 이상의 피드를 생성하고 발행합니다." },
+  { label: "수상", text: "카카오 브라이언임팩트 AI 트랙 우수 프로덕트상을 받았습니다." },
+];
+
+const problems = [
+  {
+    title: "읽을 시간이 없다",
+    text: "출퇴근 몇 분 안에 긴 기사나 영어 원문을 끝까지 읽기는 어렵습니다. 짧은 영상은 오래 봐도 남는 것이 적습니다.",
+  },
+  {
+    title: "매체마다 다르게 보도한다",
+    text: "같은 사건도 매체에 따라 프레임이 다릅니다. 이 문제의식으로 출품해 카카오 브라이언임팩트 AI 트랙에서 우수 프로덕트상을 받았습니다.",
+  },
+  {
+    title: "접근: 핵심만, 출처는 투명하게",
+    text: "기사 하나를 10초면 읽는 문단 3개로 줄이고, 모든 카드에 원문 링크와 'AI가 작성한 기사' 표시를 달았습니다. 빠르게 읽히되 출처와 생성 주체는 숨기지 않는 방향입니다.",
+  },
+];
+
+const screens = [
+  {
+    image: feedSearchImage,
+    alt: "맞춤 피드 설정 화면과 검색 화면. 카테고리 선택과 Whip 트렌딩이 보인다",
+    title: "맞춤 피드와 검색",
+    text: "뉴스, 세계, 비즈니스, 스포츠, 테크, 패션, 인문 등 관심 카테고리를 고르면 맞춤 피드를 구성합니다. 검색과 Whip 트렌딩, 방금 올라온 소식도 제공합니다.",
+  },
+  {
+    image: globalImage,
+    alt: "해외 매체 기사를 한국어 카드로 보여주는 화면. BBC와 Who What Wear 원문 링크가 보인다",
+    title: "해외 매체까지",
+    text: "BBC, The Guardian 같은 해외 매체의 기사도 한국어 카드로 요약해 보여줍니다. 카드마다 원문 링크를 달았습니다.",
+  },
+];
+
+const pipeline = [
+  { title: "수집", text: "국내외 매체 RSS, Reddit, Product Hunt를 스케줄에 맞춰 수집합니다.", tech: "AWS Lambda, EventBridge" },
+  { title: "클러스터링", text: "기사를 임베딩해 코사인 유사도 임계값으로 같은 이슈를 묶습니다.", tech: "Python, Embedding" },
+  { title: "생성", text: "AI가 이슈별로 중립적인 요약 기사를 쓰고 썸네일을 만듭니다.", tech: "LLM, Prompt" },
+  { title: "검수", text: "가드레일이 1차로 걸러내고, 신고된 피드는 AI가 삭제하거나 재구성합니다.", tech: "Guardrail" },
+  { title: "발행", text: "RDS에 저장하고 API로 앱에 전달합니다.", tech: "Java Spring, RDS, React Native" },
+];
+
+const stack = [
+  { label: "프론트엔드", items: ["React Native"] },
+  { label: "백엔드", items: ["Java", "Spring"] },
+  { label: "파이프라인 엔진", items: ["Python", "Embedding", "LLM"] },
+  { label: "인프라", items: ["AWS Lambda", "EventBridge", "RDS"] },
+];
+
+const operations = [
+  { label: "신고 대응", text: "신고된 피드를 AI가 검토해 삭제하거나 다시 구성합니다." },
+  { label: "콘텐츠 재발행", text: "반응이 좋은 게시글을 SNS 채널 컨셉에 맞게 자동으로 재구성해 발행합니다." },
+  { label: "장애 대응", text: "로그를 감지해 장애가 생기면 대응 가이드까지 전달합니다." },
+];
+
+const decisions = [
+  { label: "서버리스 구조", text: "수집을 Lambda 오케스트레이터와 크롤링 코어로 나누고, EventBridge로 스케줄링했습니다." },
+  { label: "클러스터링 기준", text: "임베딩 코사인 유사도 임계값으로 같은 이슈인지 판단합니다." },
+  { label: "요약 품질", text: "LLM 요약 프롬프트를 반복해서 다듬었습니다." },
+  { label: "피드 조회 방식", text: "여러 카테고리가 고르게, 최신 상태로 보이도록 피드 조회 방식을 설계했습니다." },
+  { label: "수집 채널 관리", text: "수집 소스를 채널 단위로 관리하고, 운영을 위한 어드민을 개발했습니다." },
+  { label: "크롤링·저장 이슈", text: "RSS 수집 오류와 RDS 저장 문제를 디버깅했습니다." },
+];
+
+const nextSteps = [
+  { label: "다관점 카드", text: "클러스터링과 중립 요약은 동작 중이고, 같은 이슈를 매체별 시각 차이로 비교해 보여주는 카드 화면을 개발할 계획입니다." },
+  { label: "이슈 타임라인", text: "하나의 이슈가 전개되는 흐름을 시간순으로 보여줍니다." },
+  { label: "이슈 워치리스트", text: "관심 이슈를 지켜보며 리스크를 모니터링하는 기능입니다." },
+];
+
+const description = "Daily Whip — 10초 만에 읽는 오늘의 뉴스. AI 파이프라인으로 수집부터 발행까지 자동화한 숏폼 뉴스 앱 포트폴리오.";
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content="Daily Whip 포트폴리오" />
+    <meta property="og:description" content={description} />
+    <link rel="icon" href={withBase(`/space-ahead-logo.png`)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <title>{siteConfig.title} | Daily Whip 포트폴리오</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="container">
+        <nav class="topbar" aria-label="사이트">
+          <a href={withBase("/")} data-no-swup>← {siteConfig.title}</a>
+        </nav>
+
+        <header class="hero">
+          <div class="hero-text">
+            <div class="brand">
+              <Image src={iconImage} alt="Daily Whip 앱 아이콘" width={64} height={64} loading="eager" />
+              <div class="muted">사이드 프로젝트 포트폴리오</div>
+            </div>
+            <div class="title-group">
+              <h1>Daily Whip</h1>
+              <div class="subtitle">10초 만에 읽는 오늘의 뉴스</div>
+            </div>
+            <p class="lead">
+              뉴스와 읽을거리를 핵심만 카드 한 장으로 보여주는 AI 숏폼 앱입니다. 수집, 요약, 검수, 발행, 운영까지 AI
+              파이프라인으로 자동화해 하루 500개 이상의 피드를 발행합니다.
+            </p>
+            <dl class="meta">
+              {
+                meta.map((item) => (
+                  <div>
+                    <dt>{item.label}</dt>
+                    <dd>{item.value}</dd>
+                  </div>
+                ))
+              }
+            </dl>
+            <div class="actions">
+              <a class="button" href={links.appStore} target="_blank" rel="noopener">App Store에서 보기</a>
+              <a class="button" href={links.googlePlay} target="_blank" rel="noopener">Google Play에서 보기</a>
+              <a class="button" href={links.web} target="_blank" rel="noopener">웹에서 보기</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="phones">
+              <Image
+                src={cardImage}
+                alt="Daily Whip 카드 화면. 기사 핵심 문단 3개와 AI 작성 표시가 보인다"
+                width={424}
+                loading="eager"
+              />
+              <Image
+                class="offset"
+                src={imageCardImage}
+                alt="Daily Whip 이미지 카드 화면. 썸네일과 요약, 원문 링크가 보인다"
+                width={381}
+                loading="eager"
+              />
+            </div>
+            <div class="caption center">카드 한 장에 핵심 문단 3개, 원문 링크, AI 작성 표시</div>
+          </div>
+        </header>
+
+        <section>
+          <h2>성과와 현황</h2>
+          <div class="results">
+            <figure class="results-figure">
+              <Image
+                class="framed"
+                src={appStoreImage}
+                alt="App Store 앱 소개 화면. 차트 항목에 잡지 및 신문 카테고리 14위가 표시된다"
+                width={603}
+              />
+              <figcaption class="caption">App Store 앱 소개 화면. 차트 항목에 '잡지 및 신문' 14위가 표시됩니다.</figcaption>
+            </figure>
+            <div class="rows results-rows">
+              {
+                results.map((row) => (
+                  <div class="row">
+                    <div class="row-label">{row.label}</div>
+                    <p>{row.text}</p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>문제와 접근</h2>
+          <div class="grid grid-260">
+            {
+              problems.map((item) => (
+                <div class="stack-8">
+                  <h3>{item.title}</h3>
+                  <p class="body-sm">{item.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section>
+          <h2>화면 구성</h2>
+          <div class="grid grid-300 gap-40">
+            {
+              screens.map((screen) => (
+                <figure class="screen">
+                  <Image src={screen.image} alt={screen.alt} width={screen.image.width} />
+                  <figcaption class="stack-4">
+                    <div class="h3">{screen.title}</div>
+                    <div class="body-sm">{screen.text}</div>
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </section>
+
+        <section>
+          <h2>시스템 구조</h2>
+          <p class="intro">수집부터 발행까지 하나의 파이프라인으로 연결하고, 운영은 AI 에이전트가 맡도록 구성했습니다.</p>
+          <ol class="grid grid-170 pipeline">
+            {
+              pipeline.map((step, index) => (
+                <li class="step">
+                  <div class="mono step-no">{index + 1}</div>
+                  <div class="step-title">{step.title}</div>
+                  <div class="step-text">{step.text}</div>
+                  <div class="mono step-tech">{step.tech}</div>
+                </li>
+              ))
+            }
+          </ol>
+
+          <div class="tech-stack">
+            <h3>기술 스택</h3>
+            <div class="rows">
+              {
+                stack.map((group) => (
+                  <div class="row row-tight">
+                    <div class="stack-label">{group.label}</div>
+                    <div class="tags">
+                      {group.items.map((item) => (
+                        <span class="tag mono">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>AI 에이전트 기반 운영</h2>
+          <div class="rows">
+            {
+              operations.map((row) => (
+                <div class="row">
+                  <div class="row-label">{row.label}</div>
+                  <p>{row.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section>
+          <h2>만들면서 정한 것들</h2>
+          <div class="rows">
+            {
+              decisions.map((row) => (
+                <div class="row">
+                  <div class="row-label">{row.label}</div>
+                  <p>{row.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section>
+          <h2>다음 단계</h2>
+          <div class="rows">
+            {
+              nextSteps.map((row) => (
+                <div class="row">
+                  <div class="row-label">{row.label}</div>
+                  <p>{row.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="muted">이순범</div>
+          <div class="footer-links">
+            <a href={links.appStore} target="_blank" rel="noopener">App Store</a>
+            <a href={links.googlePlay} target="_blank" rel="noopener">Google Play</a>
+            <a href={links.web} target="_blank" rel="noopener">daily-whip.com</a>
+            <a href={withBase("/tech")} data-no-swup>기술 블로그</a>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .page {
+    --bg: #0e0c1e;
+    --text: #e8e5f5;
+    --heading: #f4f2fc;
+    --body: #c9c5e3;
+    --muted: #a8a3c7;
+    --subtle: #8f8ab3;
+    --accent: #b3a7ff;
+    --accent-hover: #edeaf7;
+    --line: #2a2645;
+    --tag-line: #3a3560;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #0e0c1e;
+  }
+
+  :global(a) {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  :global(a:hover) {
+    color: var(--accent-hover);
+  }
+  :global(a:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .page {
+    box-sizing: border-box;
+    width: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans KR", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    padding: clamp(40px, 8vw, 96px) clamp(20px, 5vw, 56px) 96px;
+  }
+
+  .container {
+    max-width: 1168px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(56px, 8vw, 88px);
+  }
+
+  .topbar {
+    font-size: 14px;
+    margin-bottom: calc(-1 * clamp(24px, 4vw, 48px));
+  }
+
+  .mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .muted {
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .caption {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--subtle);
+  }
+  .center {
+    text-align: center;
+  }
+
+  h1,
+  h2,
+  h3,
+  .h3 {
+    margin: 0;
+    font-weight: 700;
+    color: var(--heading);
+  }
+  h1 {
+    font-size: clamp(36px, 7vw, 52px);
+    line-height: 1.15;
+  }
+  h2 {
+    font-size: clamp(24px, 4vw, 30px);
+    line-height: 1.35;
+  }
+  h3,
+  .h3 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .body-sm {
+    font-size: 15px;
+    color: var(--body);
+  }
+
+  .stack-4,
+  .stack-8 {
+    display: flex;
+    flex-direction: column;
+  }
+  .stack-4 {
+    gap: 4px;
+  }
+  .stack-8 {
+    gap: 8px;
+  }
+
+  /* Hero */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero-text {
+    flex: 1 1 380px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand img {
+    width: 64px;
+    height: 64px;
+    display: block;
+  }
+  .title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .subtitle {
+    font-size: 20px;
+    color: var(--muted);
+  }
+  .lead {
+    max-width: 540px;
+    color: var(--body);
+  }
+  .meta {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    gap: 16px 24px;
+  }
+  .meta dt {
+    font-size: 13px;
+    color: var(--subtle);
+  }
+  .meta dd {
+    margin: 2px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    font-size: 15px;
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+  .button:hover {
+    background: rgba(179, 167, 255, 0.12);
+  }
+  .hero-visual {
+    flex: 0 1 440px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .phones {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .phones img {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 212px;
+    height: auto;
+    display: block;
+  }
+  .phones img.offset {
+    margin-top: 32px;
+  }
+
+  /* Sections */
+  section {
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .intro {
+    max-width: 620px;
+    color: var(--body);
+  }
+
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  .results-figure {
+    flex: 0 1 340px;
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .results-figure img.framed {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .results-rows {
+    flex: 1 1 380px;
+    min-width: 0;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 32px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .row-label {
+    flex: 0 0 180px;
+    font-weight: 700;
+    color: var(--heading);
+  }
+  .row p {
+    flex: 1 1 320px;
+    color: var(--body);
+  }
+  .row-tight {
+    align-items: center;
+    gap: 8px 32px;
+    padding: 14px 0;
+  }
+
+  .grid {
+    display: grid;
+    gap: 32px;
+  }
+  .grid-260 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  }
+  .grid-300 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  }
+  .grid-170 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  }
+  .gap-40 {
+    gap: 40px;
+  }
+
+  .screen {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .screen img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Pipeline */
+  .pipeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 24px;
+  }
+  .step {
+    border-top: 2px solid var(--accent);
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .step-no {
+    font-size: 13px;
+    color: var(--subtle);
+  }
+  .step-title {
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: var(--heading);
+  }
+  .step-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--body);
+  }
+  .step-tech {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--subtle);
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .stack-label {
+    flex: 0 0 120px;
+    font-size: 14px;
+    color: var(--subtle);
+  }
+  .tags {
+    flex: 1 1 280px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 4px 10px;
+    border: 1px solid var(--tag-line);
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    font-size: 15px;
+  }
+</style>
