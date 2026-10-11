@@ -9,6 +9,8 @@ export type Image = {
 export type Link = {
     text: string;
     href: string;
+    // 자체 레이아웃을 쓰는 페이지는 swup 전환 대신 전체 페이지 로드
+    noSwup?: boolean;
 };
 
 export type Hero = {
@@ -91,6 +93,11 @@ const siteConfig: SiteConfig = {
         {
             text: 'Tags',
             href: withBase('/tags')
+        },
+        {
+            text: 'Portfolio',
+            href: withBase('/portfolio'),
+            noSwup: true
         },
         {
             text: 'About',

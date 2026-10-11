@@ -5,7 +5,7 @@ const {
   isMobileLink = false,
 } = Astro.props as {
   activePage: string;
-  links: { text: string; href: string }[];
+  links: { text: string; href: string; noSwup?: boolean }[];
   isMobileLink?: boolean;
 };
 ---
@@ -21,7 +21,7 @@ const {
       .join(" ")
       .trim();
     return (
-      <a class={classNames} href={link.href}>
+      <a class={classNames} href={link.href} data-no-swup={link.noSwup || undefined}>
         {link.text}
       </a>
     );
